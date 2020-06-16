@@ -6,17 +6,25 @@ export const routes: Routes = [
   {
     path: '',
     component: AppComponent,
+    pathMatch: 'full',
   },
   {
     path: 'todo',
     loadChildren: () =>
-      import('./drops/todo/todo.module').then((m) => m.TodoModule),
+      import('./drops/todo/todo.module').then(({ TodoModule }) => TodoModule),
   },
   {
     path: 'screen',
     loadChildren: () =>
       import('./drops/beautiful-screen/beautiful-screen.module').then(
-        (m) => m.BeautifulScreenModule
+        ({ BeautifulScreenModule }) => BeautifulScreenModule
+      ),
+  },
+  {
+    path: 'banners',
+    loadChildren: () =>
+      import('./drops/banners-generator/banners-generator.module').then(
+        ({ BannersGeneratorModule }) => BannersGeneratorModule
       ),
   },
 ];

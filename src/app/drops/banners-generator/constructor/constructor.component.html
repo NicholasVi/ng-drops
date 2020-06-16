@@ -1,0 +1,47 @@
+<div routerLink="/settings">to settings</div>
+<input
+  type="file"
+  (change)="foo($event)"
+  multiple="multiple"
+  name="files[]"
+  accept="image"
+  id=""
+/>
+
+<input type="number" name="" [(ngModel)]="config.size.h" id="" />
+
+<div class="" #previewContainer>
+  <div class="preview-item" *ngFor="let s of files | async">
+    <p>
+      <mark>{{ getTextCombinations().title }}</mark>
+    </p>
+    <img [src]="s" />
+    <p>
+      <mark>{{ getTextCombinations().text }}</mark>
+    </p>
+  </div>
+</div>
+
+<div class="config">
+  <textarea
+    name=""
+    id=""
+    cols="30"
+    rows="10"
+    [(ngModel)]="titles"
+    placeholder="Enter titles"
+  ></textarea>
+  <textarea
+    name=""
+    id=""
+    cols="30"
+    rows="10"
+    [(ngModel)]="descriptions"
+    placeholder="Enter descriptions"
+  ></textarea>
+  <div (click)="getTextCombinations()">getTextCombinations</div>
+</div>
+
+<div (click)="saveAll()">
+  saveAll
+</div>
